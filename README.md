@@ -1,6 +1,5 @@
 # COATI-Model-Evaluation
-This repository contains all necessary materials and code for replicating the experiments and analyses presented in my report on the COATI model. It includes detailed Jupyter notebooks for training the model from scratch using the GuacaMol dataset, conducting linear probing tasks, and analyzing molecular generation capabilities.
-
+This repository contains all necessary materials and code for replicating the experiments and analyses presented in my report on the [COATI model](https://github.com/terraytherapeutics/COATI). It includes detailed scripts and notebooks for training the model from scratch using the GuacaMol dataset, conducting linear probing tasks, and analyzing molecular generation capabilities.
 
 # Setup Installation
 
@@ -8,7 +7,7 @@ This repository contains all necessary materials and code for replicating the ex
    Clone the repository to your local machine to get started with the setup.
 
    ```bash
-   git clone https://github.com/yourusername/molecule-generation.git
+   git clone https://github.com/StefanHangler/COATI-Model-Evaluation.git
    cd molecule-generation
    ```
 

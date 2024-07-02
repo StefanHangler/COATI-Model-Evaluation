@@ -1,5 +1,7 @@
 import pandas as pd
 import pickle
+from coati.common.s3 import download_from_s3
+import os
 
 #### List of all Datasets ####
 
@@ -48,6 +50,45 @@ dataset_info = {
         'cyp2c9_veith': ('AUROC', 'Classification'),
         'herg': ('AUROC', 'Classification'),
 }
+
+def _load_dataset_links(file_path: str) -> list:
+    """
+    Load dataset links from a text file.
+
+    Args:
+        file_path (str): Path to the text file containing dataset links.
+
+    Returns:
+        list: A list of dataset URLs.
+    """
+    with open(file_path, 'r') as file:
+        links = file.read().splitlines()
+        
+    return links
+
+def download_admet_terray_data():
+    """
+    Download ADMET dataset from Terray's public S3 bucket.
+    """
+    links_path = 'admet_datasets.txt'
+    dataset_links = _load_dataset_links(links_path)
+    local_dir = './datasets'
+
+    for link in dataset_links:
+        # extract dataset_name from the link
+        dataset_name = link.split('/')[-1]
+        dataset_path = os.path.join(local_dir, dataset_name)
+
+        # check if the dataset is already downloaded
+        if os.path.exists(dataset_path):
+            print(f"{dataset_name} already exists")
+            continue
+        
+        try:
+            download_from_s3(link)
+        except Exception as e:
+            print(f"Failed to download {dataset_name}: {e}")
+            continue
 
 def load_dataset(file_path: str) -> pd.DataFrame:
     with open(file_path, 'rb') as file:

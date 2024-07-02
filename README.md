@@ -124,6 +124,50 @@ evaluate_guacamol(
 
 This will output the validity, novelty, uniqueness, and FCD score for the `ExampleModel`. Adjust the `training_smiles` and `generated_smiles` variables as necessary to reflect your datasets.
 
+
+# Linear Probing for ADMET Property Prediction
+
+Linear probing is used to evaluate the quality of learned embeddings by training a simple model, such as logistic regression or random forest, on downstream tasks using these embeddings. This section explains how to use the linear probing utilities included in this repository to assess embeddings for various ADMET datasets.
+
+## Setup
+
+Before running the linear probing tasks, ensure that your ADMET datasets are prepared and that embeddings are updated accordingly. Use the provided script `update_dataset_embeddings` to preprocess the embeddings for your dataset.
+
+## Relevant Scripts
+
+- **`admet_dataset.py`**: Manages the loading and processing of ADMET datasets.
+- **`train_scaffold_split.py`**: Contains utilities for splitting datasets based on molecular scaffolds, training models, and evaluating them using metrics such as AUROC, &Delta;AP (Delta Average Precision), RMSE, and Spearman correlation.
+
+## Running Linear Probing
+
+1. **Update ADMET Datasets**:
+   Ensure that your ADMET datasets are prepared with necessary columns for linear probing. Use the `update_datasets` function to add `Metric` and `Task` columns to each dataset.
+   
+   ```python
+   from admet_dataset import update_datasets
+   update_datasets()
+   ```
+
+2. **Evaluate Models**:
+   Use the `coati_linear_probing_eval` function from `train_scaffold_split.py` to perform linear probing. This function automatically handles dataset loading, model training, and evaluation.
+   
+   ```python
+   from train_scaffold_split import coati_linear_probing_eval
+   coati_linear_probing_eval()
+   ```
+
+3. **Results**:
+   Evaluation metrics such as AUROC, &Delta;AP, RMSE, Spearman correlation, and their bootstrapped uncertainties will be printed during the execution. These results are also saved to a CSV file for further analysis.
+
+## Note
+
+For detailed information on each dataset and the expected model performance, refer to the `dataset_info` dictionary in `admet_dataset.py`. Adjust the base path to datasets or embeddings as necessary based on your project setup.
+
+### Troubleshooting
+
+- Ensure that all dataset paths and model URLs are correctly set in the scripts.
+
+
 # License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.

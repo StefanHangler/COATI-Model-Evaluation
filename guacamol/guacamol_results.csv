@@ -1,0 +1,6 @@
+Model,Validity,Novelty,Uniqueness,FCD Score,FCD GuacaMol
+grande closed,0.9943,,0.8283,,
+coati2,0.8833,,0.9998,,
+autoreg only inv 2,0.9993,,0.0004,,
+autoreg only inv 1.7, 0.9212,,0.16,,
+guacamol model, 0.7683, 1.0, 0.9099, 3.8725504327923232, 0.46092954127082375

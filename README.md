@@ -110,10 +110,11 @@ To evaluate generated molecules, follow these steps:
 Here is an example of how to call the evaluation function for a set of generated molecules:
 
 ```python
+from guacamol.evaluate_guacamol import evaluate_guacamol
+
 generated_smiles = ["CCO", "Oc1ccccc1"]
 training_smiles = ["CCO", "CC"]
 
-# Assuming `evaluate_guacamol` is already imported
 evaluate_guacamol(
     generated_smiles=generated_smiles,
     training_smiles=training_smiles,

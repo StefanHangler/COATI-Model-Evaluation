@@ -8,7 +8,7 @@ This repository contains all necessary materials and code for replicating the ex
 
    ```bash
    git clone https://github.com/StefanHangler/COATI-Model-Evaluation.git
-   cd molecule-generation
+   COATI-Model-Evaluation
    ```
 
 2. **Create and Activate a Virtual Environment:**
@@ -35,6 +35,15 @@ This will install the COATI-Model-Evaluation package and all required dependenci
 # Training on the GuacaMol Benchmark
 
 The training script provided is designed to train a model on the GuacaMol benchmark using a specific configuration of the COATI framework. Below are detailed instructions and important considerations for using this script effectively.
+
+## Downloading Necessary Files
+
+**GuacaMol Dataset and Trained Models**: Download the GuacaMol dataset and pre-trained model checkpoints from this Google Drive link:
+   - [GuacaMol Dataset and Models](https://drive.google.com/drive/folders/1s9KSn68cwuMsMuuAHlv___XMP014D9WX?usp=sharing)
+
+   Place the downloaded files in the appropriate directories as follows:
+   - Dataset: Place under `guacamol/data/`
+   - Model Checkpoints: Place under `guacamol/train_model/model_checkpoints/`
 
 ## Configuration
 Before running the training script, it is essential to configure the parameters according to your training requirements and hardware setup. Key parameters include:
@@ -162,6 +171,29 @@ This will output the validity, novelty, uniqueness, and FCD score for the `Examp
 # Linear Probing for ADMET Property Prediction
 
 Linear probing is used to evaluate the quality of learned embeddings by training a simple model, such as logistic regression or random forest, on downstream tasks using these embeddings. This section explains how to use the linear probing utilities included in this repository to assess embeddings for various ADMET datasets.
+
+## Downloading ADMET Datasets
+
+Before you can run the linear probing tasks, it's essential to have the ADMET datasets available locally. This repository includes a utility function in `admet_dataset.py` that facilitates the downloading of these datasets from Terray's public S3 bucket.
+
+### Using the Download Function
+
+The function `download_admet_terray_data()` automates the process of downloading the datasets. Here's how you can use it:
+**Execute the Download**: Run the following function to start downloading the datasets:
+
+    ```python
+    from admet_dataset import download_admet_terray_data
+    download_admet_terray_data()
+    ```
+
+    This function checks for existing files before downloading to avoid unnecessary data transfer. If a dataset already exists locally, it will skip re-downloading it.
+
+### What Happens Next?
+After running the function, the datasets will be downloaded to the `./datasets` directory within your project structure. Each dataset's name is derived from the last segment of its URL, ensuring that they are stored with recognizable and consistent filenames.
+
+### Troubleshooting
+- **Download Issues**: If there are any issues during the download (e.g., due to network interruptions or permissions), the function will print an error message specifying the problem. Ensure that your AWS credentials are configured correctly if using `boto3`.
+- **Manual Download**: If automated downloading fails, you may manually download the datasets from the provided links and place them in the `./datasets` directory.
 
 ## Setup
 

@@ -1,36 +1,51 @@
 # COATI-Model-Evaluation
 This repository contains all necessary materials and code for replicating the experiments and analyses presented in my report on the [COATI model](https://github.com/terraytherapeutics/COATI). It includes detailed scripts and notebooks for training the model from scratch using the GuacaMol dataset, conducting linear probing tasks, and analyzing molecular generation capabilities.
 
+The `coati` directory is from the original COATI repository with some minor changes in the `dataset.py` class. All other folders and files contain experiment and analysis of the COATI framework.
+
 # Setup Installation
 
-1. **Clone the Repository:**
-   Clone the repository to your local machine to get started with the setup.
+## Clone the Repository
+Clone the repository to your local machine to get started with the setup:
 
-   ```bash
-   git clone https://github.com/StefanHangler/COATI-Model-Evaluation.git
-   COATI-Model-Evaluation
-   ```
+```bash
+git clone https://github.com/StefanHangler/COATI-Model-Evaluation.git
+cd COATI-Model-Evaluation
+```
 
-2. **Create and Activate a Virtual Environment:**
-   - For Unix/macOS systems:
-     ```bash
-     python3 -m venv env
-     source env/bin/activate
-     ```
-   - For Windows:
-     ```bash
-     python -m venv env
-     .\env\Scripts\activate
-     ```
+## Option 1: Using Conda
+If you do not have Conda installed, download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) or [Anaconda](https://www.anaconda.com/products/individual).
 
-3. **Install the Package:**
-   Install the package using `pip` which will handle all dependencies automatically.
+Create the Conda environment from the `environment.yml` file, which includes all necessary dependencies:
 
-   ```bash
-   pip install .
-   ```
+```bash
+conda env create -f env.yml
+```
 
-This will install the COATI-Model-Evaluation package and all required dependencies, setting up the environment for running or extending the application.
+Activate the Conda environment:
+
+```bash
+conda activate coati_model_eval
+```
+
+## Option 2: Using Virtual Environment
+- For Unix/macOS systems:
+  ```bash
+  python3 -m venv env
+  source env/bin/activate
+  ```
+- For Windows:
+  ```bash
+  python -m venv env
+  .\env\Scripts\activate
+  ```
+Install the package using `pip` which will handle all dependencies automatically:
+
+```bash
+pip install .
+```
+
+Both methods will install the COATI-Model-Evaluation package and all required dependencies, setting up the environment for running or extending the application.
 
 # Training on the GuacaMol Benchmark
 

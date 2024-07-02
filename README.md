@@ -32,6 +32,40 @@ This repository contains all necessary materials and code for replicating the ex
 
 This will install the COATI-Model-Evaluation package and all required dependencies, setting up the environment for running or extending the application.
 
+# Training on the GuacaMol Benchmark
+
+The training script provided is designed to train a model on the GuacaMol benchmark using a specific configuration of the COATI framework. Below are detailed instructions and important considerations for using this script effectively.
+
+## Configuration
+Before running the training script, it is essential to configure the parameters according to your training requirements and hardware setup. Key parameters include:
+
+- `args.gpus`: Number of GPUs available on your node. The script automatically adapts to the number of GPUs.
+- `args.batch_size`: Batch size per GPU. Adjust according to your GPU memory capacity.
+- `args.n_epochs`: Number of epochs to train the model. (in the report I did 7 but 25 would be much better for benchmark comparisons)
+- `args.lr`: Learning rate for the optimizer.
+- `args.data_dir`: Path to the directory where the GuacaMol dataset is stored.
+
+These parameters can be modified directly within the script.
+
+## Execution
+To run the training script, navigate to the directory containing the script and execute:
+
+```bash
+python train_guacamol.py
+```
+
+The script sets up the training environment, initializes a distributed training session using PyTorch's multiprocessing capabilities, and starts the training process across the specified number of GPUs.
+
+## Output
+- **Model Checkpoints**: The trained model checkpoints are saved in the specified `args.model_dir` directory.
+- **Logs**: Training logs and output are stored in the `args.output_dir` directory. These logs provide detailed information about the training progress and performance.
+
+## Monitoring Training Progress
+It is recommended to monitor the training progress through the logs to ensure that the training is proceeding as expected. Check for any errors or unexpected behavior, especially in the early stages of training.
+
+## Post-Training
+After training, you can evaluate the model using the evaluation scripts provided or integrate the model into your application. Ensure to properly handle the model checkpoints for inference or further training.
+
 # Molecule Generation
 This repository contains a Python script for generating molecular structures using various pretrained PyTorch models. The models are implemented following an abstract base class to ensure a consistent interface for molecule generation.
 

@@ -8,7 +8,7 @@ This repository contains all necessary materials and code for replicating the ex
 
    ```bash
    git clone https://github.com/StefanHangler/COATI-Model-Evaluation.git
-   cd molecule-generation
+   COATI-Model-Evaluation
    ```
 
 2. **Create and Activate a Virtual Environment:**

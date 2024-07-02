@@ -36,6 +36,15 @@ This will install the COATI-Model-Evaluation package and all required dependenci
 
 The training script provided is designed to train a model on the GuacaMol benchmark using a specific configuration of the COATI framework. Below are detailed instructions and important considerations for using this script effectively.
 
+## Downloading Necessary Files
+
+**GuacaMol Dataset and Trained Models**: Download the GuacaMol dataset and pre-trained model checkpoints from this Google Drive link:
+   - [GuacaMol Dataset and Models](https://drive.google.com/drive/folders/1s9KSn68cwuMsMuuAHlv___XMP014D9WX?usp=sharing)
+
+   Place the downloaded files in the appropriate directories as follows:
+   - Dataset: Place under `guacamol/data/`
+   - Model Checkpoints: Place under `guacamol/train_model/model_checkpoints/`
+
 ## Configuration
 Before running the training script, it is essential to configure the parameters according to your training requirements and hardware setup. Key parameters include:
 

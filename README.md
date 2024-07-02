@@ -163,6 +163,29 @@ This will output the validity, novelty, uniqueness, and FCD score for the `Examp
 
 Linear probing is used to evaluate the quality of learned embeddings by training a simple model, such as logistic regression or random forest, on downstream tasks using these embeddings. This section explains how to use the linear probing utilities included in this repository to assess embeddings for various ADMET datasets.
 
+## Downloading ADMET Datasets
+
+Before you can run the linear probing tasks, it's essential to have the ADMET datasets available locally. This repository includes a utility function in `admet_dataset.py` that facilitates the downloading of these datasets from Terray's public S3 bucket.
+
+### Using the Download Function
+
+The function `download_admet_terray_data()` automates the process of downloading the datasets. Here's how you can use it:
+**Execute the Download**: Run the following function to start downloading the datasets:
+
+    ```python
+    from admet_dataset import download_admet_terray_data
+    download_admet_terray_data()
+    ```
+
+    This function checks for existing files before downloading to avoid unnecessary data transfer. If a dataset already exists locally, it will skip re-downloading it.
+
+### What Happens Next?
+After running the function, the datasets will be downloaded to the `./datasets` directory within your project structure. Each dataset's name is derived from the last segment of its URL, ensuring that they are stored with recognizable and consistent filenames.
+
+### Troubleshooting
+- **Download Issues**: If there are any issues during the download (e.g., due to network interruptions or permissions), the function will print an error message specifying the problem. Ensure that your AWS credentials are configured correctly if using `boto3`.
+- **Manual Download**: If automated downloading fails, you may manually download the datasets from the provided links and place them in the `./datasets` directory.
+
 ## Setup
 
 Before running the linear probing tasks, ensure that your ADMET datasets are prepared and that embeddings are updated accordingly. Use the provided script `update_dataset_embeddings` to preprocess the embeddings for your dataset.

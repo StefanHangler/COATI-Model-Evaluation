@@ -196,12 +196,12 @@ Before you can run the linear probing tasks, it's essential to have the ADMET da
 The function `download_admet_terray_data()` automates the process of downloading the datasets. Here's how you can use it:
 **Execute the Download**: Run the following function to start downloading the datasets:
 
-    ```python
-    from admet_dataset import download_admet_terray_data
-    download_admet_terray_data()
-    ```
+```python
+from admet_dataset import download_admet_terray_data
+download_admet_terray_data()
+```
 
-    This function checks for existing files before downloading to avoid unnecessary data transfer. If a dataset already exists locally, it will skip re-downloading it.
+This function checks for existing files before downloading to avoid unnecessary data transfer. If a dataset already exists locally, it will skip re-downloading it.
 
 ### What Happens Next?
 After running the function, the datasets will be downloaded to the `./datasets` directory within your project structure. Each dataset's name is derived from the last segment of its URL, ensuring that they are stored with recognizable and consistent filenames.

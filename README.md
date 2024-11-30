@@ -1,5 +1,11 @@
 # COATI-Model-Evaluation
-This repository contains all necessary materials and code for replicating the experiments and analyses presented in my report on the [COATI model](https://github.com/terraytherapeutics/COATI). It includes detailed scripts and notebooks for training the model from scratch using the GuacaMol dataset, conducting linear probing tasks, and analyzing molecular generation capabilities.
+
+[![Report](https://img.shields.io/badge/My_Report-PDF-blue)](https://github.com/StefanHangler/COATI-Model-Evaluation/blob/main/Report_COATI_Model_Evaluation_StefanHangler.pdf)
+[![Original Repository](https://img.shields.io/badge/Original_Repo-GitHub-lightgrey)](https://github.com/terraytherapeutics/COATI)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
+
+This repository contains all necessary materials and code for replicating the experiments and analyses presented in [my report](https://github.com/StefanHangler/COATI-Model-Evaluation/blob/main/Report_COATI_Model_Evaluation_StefanHangler.pdf) on the [COATI model](https://github.com/terraytherapeutics/COATI). It includes detailed scripts and notebooks for training the model from scratch using the GuacaMol dataset, conducting linear probing tasks, and analyzing molecular generation capabilities.
 
 The `coati` directory is from the original COATI repository with some minor changes in the `dataset.py` class. All other folders and files contain experiment and analysis of the COATI framework.
 

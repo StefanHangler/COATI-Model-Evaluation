@@ -1,6 +1,6 @@
 # COATI-Model-Evaluation
 
-[![Report](https://img.shields.io/badge/My_Report-PDF-blue)](https://github.com/StefanHangler/COATI-Model-Evaluation/blob/main/Report_COATI_Model_Evaluation_StefanHangler.pdf)
+[![Report](https://img.shields.io/badge/Report-PDF-orange)](https://github.com/StefanHangler/COATI-Model-Evaluation/blob/main/Report_COATI_Model_Evaluation_StefanHangler.pdf)
 [![Original Repository](https://img.shields.io/badge/Original_Repo-GitHub-lightgrey)](https://github.com/terraytherapeutics/COATI)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
